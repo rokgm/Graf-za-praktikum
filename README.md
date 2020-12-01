@@ -5,6 +5,7 @@ Za ponavljajoče risanje grafov in fitanje.
 Dodaj v isto mapo kot .py file. Ali pa dodaj v Python path. Lahko v novo mapo s praznim __init__.py file-om.
 
 ## Primer uporabe
+Za uporabo primera je treba dodati v isto mapo SDS00001.txt.
 ```Python
 import math as m
 import os
