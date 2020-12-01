@@ -5,7 +5,7 @@ Za ponavljajoče risanje grafov in fitanje.
 Dodaj v isto mapo kot .py file. Ali pa dodaj v Python path. Lahko v novo mapo s praznim __init__.py file-om.
 
 ## Primer uporabe
-Za uporabo primera je treba dodati v isto mapo SDS00001.txt.
+Za uporabo primera je treba dodati v isto mapo SDS00003.txt.
 ```Python
 import math as m
 import os
@@ -29,7 +29,7 @@ def narisi_layout():
     #mgp.use_fancy_latex()  # porabi več časa
 
     # Podatki
-    relative_path = "piezoelektrik/06_piezo_meritve/SDS00003.txt"
+    relative_path = "SDS00003.txt"
     script_dir = os.path.dirname(__file__)
     abs_file_path = os.path.join(script_dir, relative_path)
     t, U = np.loadtxt(abs_file_path, skiprows=0, unpack=True)
