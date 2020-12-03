@@ -18,12 +18,12 @@ class MyGraph:
         '''
         Constructor of data object for analysis.
 
-        Required arguments:
+        Args:
             ax : pyplot.subplots.axes.Axes
             x : list
             y : list
             
-        Optional arguments:
+        Optional args:
             x-axis label, y-axis label : str
                 (Axis label in $...$ for latex.)
                 (Use raw string to treat everything as character.)
@@ -89,7 +89,7 @@ class MyGraph:
         '''
         Plot data object on graph.
 
-        Optional arguments:
+        Optional args:
             graph_label : str
                 Graph label for legend. Default 'podatki'.
                 (Label in $...$ for latex.)
@@ -121,13 +121,13 @@ class MyGraph:
             output.beta -> fitted parameter values
             Check documentation for other values.
 
-        Required arguments:
+        Args:
             func    
                 function for fitting
             initial_para : list
                 initial function parameters
 
-        Optional arguments:
+        Optional args:
             fit_name : str
                 Fit label for legend. Default 'fit'.
                 (Label in $...$ for latex.)
@@ -162,13 +162,13 @@ class MyGraph:
         '''
         Plot model on same axes as data graph.
 
-        Required arguments:
+        Args:
             func : function or lambda function
                 model function
             model_para : list
                 function parameters
 
-        Optional arguments:
+        Optional args:
             model_name : str
                 Model label for legend. Default 'model'.
                 (Label in $...$ for latex.)
@@ -185,13 +185,13 @@ class MyGraph:
         '''
         Adds text box to subplot.
 
-        Required arguments:
+        Args:
             lines : list
                 List of strings, each for line in text box.
                 (Strings in $...$ for latex.)
                 (Use raw string to treat everything as character.)
 
-        Optional arguments:
+        Optional args:
             x, y : float
                 x, y box coordinate on axes
             fontsize : int
@@ -224,7 +224,7 @@ class MyGraph:
         '''
         Save figure (layout) to pdf and png.
 
-        Required arguments:
+        Args:
             name : str
 
         Saves name.pdf, name.png.
