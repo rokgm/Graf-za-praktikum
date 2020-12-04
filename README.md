@@ -1,7 +1,7 @@
 # Graf-za-praktikum
 Za ponavljajoče risanje grafov in fitanje.
 
-## Kako uporabjati?
+## Kako uporabljati?
 Dodaj `mygraphlib.py` v isto mapo kot `.py` file. Ali pa dodaj v Python path. Lahko v novo mapo s praznim `__init__.py` file-om.
 
 ## Primer uporabe
