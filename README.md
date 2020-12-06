@@ -25,9 +25,9 @@ def func(beta, x):
 
 def narisi_layout():
     # Figure
-    fig, ax1 = plt.subplots(nrows=1, ncols=1, figsize = (6, 4))
     #mgp.use_fancy_latex()  # porabi več časa
-
+    fig, ax1 = plt.subplots(nrows=1, ncols=1, figsize = (6, 4))
+    
     # Podatki
     relative_path = "SDS00003.txt"
     script_dir = os.path.dirname(__file__)
