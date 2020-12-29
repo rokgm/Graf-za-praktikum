@@ -85,7 +85,7 @@ class MyGraph:
         return self.x_low, self.x_high, self.y_low, self.y_high
 
 
-    def graph_data(self, graph_label='podatki'):
+    def graph_data(self, graph_label='podatki', fmt='k.'):
         '''
         Plot data object on graph.
 
@@ -97,13 +97,13 @@ class MyGraph:
         '''
         if self.xerr !=None and self.yerr !=None:
             self.ax.errorbar(self.x, self.y, xerr=self.xerr, yerr=self.yerr,
-                fmt='k.', ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label='podatki')
+                fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
         elif self.yerr != None:
             self.ax.errorbar(self.x, self.y, yerr=self.yerr,
-                fmt='k.', ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label='podatki')
+                fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
         elif self.xerr != None:
             self.ax.errorbar(self.x, self.y, xerr=self.xerr,
-                fmt='k.', ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label='podatki')
+                fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
         else:
             self.ax.plot(self.x, self.y, 'kx', markersize=4, label='{}'.format(graph_label))
         
