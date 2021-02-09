@@ -14,7 +14,7 @@ class MyGraph:
     must be created before plotting.
     '''
 
-    def __init__(self, ax, x, y, xlabel=None, ylabel=None, title=None, xerr=None, yerr=None, x_low=None, x_high=None, y_low=None, y_high=None, grid=True, legend=True):
+    def __init__(self, ax, x, y, xlabel=None, ylabel=None, title=None, xerr=0, yerr=0, x_low=None, x_high=None, y_low=None, y_high=None, grid=True, legend=True):
         '''
         Constructor of data object for analysis.
 
@@ -85,27 +85,27 @@ class MyGraph:
         return self.x_low, self.x_high, self.y_low, self.y_high
 
 
-    def graph_data(self, graph_label='podatki', fmt='k.'):
+    def graph_data(self, graph_label='meritve', fmt='k.'):
         '''
         Plot data object on graph.
 
         Optional args:
             graph_label : str
-                Graph label for legend. Default 'podatki'.
+                Graph label for legend. Default 'meritve'.
                 (Label in $...$ for latex.)
                 (Use raw string to treat everything as character.)
         '''
-        if self.xerr !=None and self.yerr !=None:
+        if np.any(self.xerr) != 0 and  np.any(self.yerr) != 0:
             self.ax.errorbar(self.x, self.y, xerr=self.xerr, yerr=self.yerr,
                 fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
-        elif self.yerr != None:
+        elif  np.any(self.yerr) != 0:
             self.ax.errorbar(self.x, self.y, yerr=self.yerr,
                 fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
-        elif self.xerr != None:
+        elif  np.any(self.xerr) != 0:
             self.ax.errorbar(self.x, self.y, xerr=self.xerr,
                 fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
         else:
-            self.ax.plot(self.x, self.y, 'kx', markersize=4, label='{}'.format(graph_label))
+            self.ax.plot(self.x, self.y, fmt, markersize=4, label='{}'.format(graph_label))
         
         self.ax.set_xlim(MyGraph.set_bounds(self)[0], MyGraph.set_bounds(self)[1])
         self.ax.set_ylim(MyGraph.set_bounds(self)[2], MyGraph.set_bounds(self)[3])    
@@ -133,11 +133,11 @@ class MyGraph:
                 (Label in $...$ for latex.)
                 (Use raw string to treat everything as character.)
         '''
-        if self.xerr != None and self.yerr != None:
+        if np.any(self.xerr) != 0 and  np.any(self.yerr) != 0:
             data = RealData(self.x, self.y, sx=self.xerr, sy=self.yerr)
-        elif self.yerr != None:
+        elif np.any(self.yerr) != 0:
             data = RealData(self.x, self.y, sy=self.yerr)
-        elif self.xerr != None:
+        elif np.any(self.xerr) != 0:
             data = RealData(self.x, self.y, sx=self.xerr)
         else:
             data = RealData(self.x, self.y)
