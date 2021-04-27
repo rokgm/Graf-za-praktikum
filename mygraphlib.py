@@ -105,7 +105,7 @@ class MyGraph:
             self.ax.errorbar(self.x, self.y, xerr=self.xerr,
                 fmt=fmt, ms=5, mfc='k', ecolor='k', elinewidth=0.5, capsize=4, label=graph_label)
         else:
-            self.ax.plot(self.x, self.y, fmt, markersize=4, label='{}'.format(graph_label))
+            self.ax.plot(self.x, self.y, fmt, markersize=5, label='{}'.format(graph_label))
         
         self.ax.set_xlim(MyGraph.set_bounds(self)[0], MyGraph.set_bounds(self)[1])
         self.ax.set_ylim(MyGraph.set_bounds(self)[2], MyGraph.set_bounds(self)[3])    
@@ -113,7 +113,7 @@ class MyGraph:
             self.ax.legend()   
 
 
-    def graph_fit(self, func, initial_para, fit_name='fit'):
+    def graph_fit(self, func, initial_para, fit_name='no_fit_label'):
         '''
         Fit parameters to data object and plot fitted graph.
 
@@ -150,8 +150,11 @@ class MyGraph:
         output.pprint()
         print('{}'.format(85 * '#')) 
         x_fit = np.linspace(MyGraph.set_bounds(self)[0], MyGraph.set_bounds(self)[1], 600)
-        y_fit = func(output.beta, x_fit)                                     
-        self.ax.plot(x_fit, y_fit, 'r', label='{}'.format(fit_name))
+        y_fit = func(output.beta, x_fit) 
+        if fit_name == 'no_fit_label':
+            self.ax.plot(x_fit, y_fit, 'r')                          
+        else:
+            self.ax.plot(x_fit, y_fit, 'r', label='{}'.format(fit_name))
         if self.legend:
             self.ax.legend()
 
@@ -181,7 +184,7 @@ class MyGraph:
             self.ax.legend()
 
 
-    def add_text_box(self, lines, x=0.68, y=0.5, fontsize=9):
+    def add_text_box(self, lines, x=0.52, y=0.1, fontsize=9):
         '''
         Adds text box to subplot.
 
